@@ -1,6 +1,5 @@
 
 import 'package:flutter/material.dart';
-
 import 'lists.dart';
 
 
@@ -61,42 +60,66 @@ class SingleAzkarList extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return  Padding(
-      padding: const EdgeInsets.only(left:10.0,bottom: 5,right: 10),
+      padding: const EdgeInsets.all(12.0),
       child: Container(
-            alignment: Alignment.topCenter,
-            decoration: BoxDecoration(
-                color: Colors.deepPurpleAccent.withOpacity(0.8),
-                borderRadius: BorderRadius.circular(20)
-            ),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
+          color: Color(0xff453658),
+        ),
+        child: Card(
+          margin: EdgeInsets.all(12),
 
-              child:ListTile(title: Text(prodzkr,style: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.w900,),textAlign: TextAlign.center,),
-                  subtitle: Text(prodsubtitle,style: TextStyle(color: Colors.white,fontSize: 15,fontStyle: FontStyle.italic),textAlign: TextAlign.right,),
+          color: Color(0xff453658),
+
+          elevation: 10,
+          child: ListTile(
+           title: Text(prodzkr,
+             style: TextStyle(color: Colors.blueGrey[100],fontWeight: FontWeight.w900,fontSize: 20),
+             textAlign: TextAlign.center,),
+               subtitle:    Center(
+                   child: FlatButton(child: CircleAvatar(
+                     child: Icon(Icons.event_note),backgroundColor: Colors.grey[700],),
+                     onPressed: (){
+                       showDialog(context: context, builder: (context){
+                         return AlertDialog(
+                           backgroundColor: Color(0xff392850),
+                           elevation: 10,
+                           titlePadding: EdgeInsets.all(20),
+                           title: Center(
+                             child: ListTile(
+                               subtitle: Text(prodsubtitle,
+                                 style: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.bold),
+                                 textAlign: TextAlign.left,),
+                             ),
+                           ),
 
 
+                         );
+                       });
+                     },
+                   )),
+
+          ),
+        ),
       ),
-      )
     );
   }
 }
 class AzkarPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      resizeToAvoidBottomPadding: false,
-      backgroundColor: Color(0XFF1D1E70),
-      appBar: AppBar(
-        title: Text("Muslim",style: TextStyle(fontWeight: FontWeight.bold,fontStyle: FontStyle.italic),),
-        backgroundColor: Color(0XFF1D1E70),
-        centerTitle: true,
-      ),
-      body: Container(
-        height: MediaQuery.of(context).size.height,
-        width: MediaQuery.of(context).size.width,
-        decoration: BoxDecoration(
-            image: DecorationImage(image: AssetImage("assets/god.png"),alignment: Alignment.center)
+
+    return  Scaffold(
+        resizeToAvoidBottomPadding: false,
+        backgroundColor: Color(0xff392850),
+        appBar: AppBar(
+          title: Text("Muslim",style: TextStyle(fontWeight: FontWeight.bold,fontStyle: FontStyle.italic),),
+          backgroundColor: Color(0xff453658),
+          centerTitle: true,
+          elevation: 10,
         ),
-        child: Azkar(),
-      ),
+        body:Azkar(),
+
     );
   }
 }

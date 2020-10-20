@@ -59,12 +59,11 @@ class SingleKholafaList extends StatelessWidget {
   });
 
 
-
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return Padding(
-      padding: const EdgeInsets.only(top :10.0,left: 20,bottom: 5,right:20),
+      padding: const EdgeInsets.only(top :2.0,left: 10,bottom: 5,right: 5),
       child:  InkWell(
         onTap: () {
           Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => Details(
@@ -76,36 +75,35 @@ class SingleKholafaList extends StatelessWidget {
             pagepart4: prodpart4,
 
           )));
+
         },
         child: Container(
           padding: EdgeInsets.all(10),
+          height: 190,
+          width: 190,
           decoration: BoxDecoration(
-            color: prodcolor,
-            borderRadius: BorderRadius.only(topRight: Radius.circular(50),topLeft:Radius.circular(50) ),
+            color: Color(0xff453652),
+            borderRadius: BorderRadius.circular(20.0),
           ),
+          child: Card(
+            color: Color(0xff453658),
+            elevation: 10,
+            child: ListTile(
+              title:  Center(
+                child: Text(
+                  prodkhalifa,
+                  style: TextStyle(
+                    fontSize: 22.0,
+                    color: Colors.white,
+                    fontFamily: "Quando",
+                    fontWeight: FontWeight.w900,
+                  ),
+                  textAlign: TextAlign.center,
 
-          child: ListTile(
-              title:  Container(
-                height: 70,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(55)
                 ),
-                child: Image.asset("assets/prophet.jpg"),),
-
-               subtitle: Text(
-                 prodkhalifa,
-                 style: TextStyle(
-                   fontSize: 25.0,
-                   color: Colors.white,
-                   fontFamily: "Quando",
-                   fontWeight: FontWeight.w900,
-                 ),
-                 textAlign: TextAlign.center,
-
-               ),
+              ),
+            ),
           ),
-
-
         ),
       ),
     );
@@ -115,20 +113,15 @@ class KholafaPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0XFF1D1E70),
+      resizeToAvoidBottomPadding: false,
+      backgroundColor: Color(0xff392850),
       appBar: AppBar(
         title: Text("Muslim",style: TextStyle(fontWeight: FontWeight.bold,fontStyle: FontStyle.italic),),
-        backgroundColor: Color(0XFF1D1E70),
+        backgroundColor: Color(0xff453658),
         centerTitle: true,
+        elevation: 10,
       ),
-      body: Container(
-        height: MediaQuery.of(context).size.height,
-        width: MediaQuery.of(context).size.width,
-        decoration: BoxDecoration(
-            image: DecorationImage(image: AssetImage("assets/god.png"),alignment: Alignment.center)
-        ),
-        child: Kholafa(),
-      ),
+      body: Kholafa(),
     );
   }
 }
@@ -154,23 +147,22 @@ class _DetailsState extends State<Details> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0XFF1D1E70),
+      backgroundColor: Color(0xff392850),
 
       appBar: AppBar(
         title: Text(widget.pagekhalifa,style: TextStyle(fontWeight: FontWeight.bold,fontStyle: FontStyle.italic),),
-        backgroundColor: Color(0XFF1D1E70),
+        backgroundColor: Color(0xff453658),
         centerTitle: true,
+        elevation: 10,
       ),
       body: Container(
-        decoration: BoxDecoration(
-            image: DecorationImage(image: AssetImage("assets/mohamed.png"),alignment: Alignment.center)
-        ),
+
         child: ListView(
           children: <Widget>[
-            Qss(widget.pagepart1,widget.pagepart1 == "" ?Colors.transparent:Colors.deepPurpleAccent.withOpacity(0.5),),
-            Qss(widget.pagepart2,widget.pagepart2 == "" ?Colors.transparent: Colors.deepPurple.withOpacity(0.5),),
-            Qss(widget.pagepart3,widget.pagepart3 == "" ?Colors.transparent:Colors.indigoAccent.withOpacity(0.5),),
-            Qss(widget.pagepart4,widget.pagepart4 == "" ?Colors.transparent:Colors.indigo.withOpacity(0.5),),
+            Qss(widget.pagepart1,widget.pagepart1 == "" ?Colors.transparent: Color(0xff453658)),
+            Qss(widget.pagepart2,widget.pagepart2 == "" ?Colors.transparent:  Color(0xff453658),),
+            Qss(widget.pagepart3,widget.pagepart3 == "" ?Colors.transparent: Color(0xff453658)),
+            Qss(widget.pagepart4,widget.pagepart4 == "" ?Colors.transparent: Color(0xff453658)),
           ],
 
         ),

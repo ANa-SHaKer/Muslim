@@ -60,7 +60,6 @@ class SingleStoryList extends StatelessWidget {
   });
 
 
-
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -79,27 +78,34 @@ class SingleStoryList extends StatelessWidget {
 
           )));
         },
-        child: Material(
-          color: prodcolor,
-          borderRadius: BorderRadius.circular(20.0),
-          child: Center(
-                    child: ListTile(
-                      title: Text(
-                        prodnabi,
-                        style: TextStyle(
-                          fontSize: 23.0,
-                          color: Colors.white,
-                          fontFamily: "Quando",
-                          fontWeight: FontWeight.w900,
-                        ),
-                        textAlign: TextAlign.center,
+        child: Container(
+          padding: EdgeInsets.all(10),
+          height: 190,
+          width: 190,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20.0),
+            color: Color(0xff453658),
 
-                      ),
-                    ),
-
+          ),
+          child: Card(
+            color: Color(0xff453658),
+            elevation: 10,
+            child: ListTile(
+              title:  Center(
+                child: Text(
+                  prodnabi,
+                  style: TextStyle(
+                    fontSize: 18.0,
+                    color: Colors.white,
+                    fontFamily: "Quando",
+                    fontWeight: FontWeight.w900,
                   ),
+                  textAlign: TextAlign.center,
 
-
+                ),
+              ),
+            ),
+          ),
         ),
       ),
     );
@@ -109,20 +115,15 @@ class StoryPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0XFF1D1E70),
+      resizeToAvoidBottomPadding: false,
+      backgroundColor: Color(0xff392850),
       appBar: AppBar(
         title: Text("Muslim",style: TextStyle(fontWeight: FontWeight.bold,fontStyle: FontStyle.italic),),
-        backgroundColor: Color(0XFF1D1E70),
+        backgroundColor: Color(0xff453658),
         centerTitle: true,
+        elevation: 10,
       ),
-      body: Container(
-        height: MediaQuery.of(context).size.height,
-        width: MediaQuery.of(context).size.width,
-        decoration: BoxDecoration(
-            image: DecorationImage(image: AssetImage("assets/god.png"),alignment: Alignment.center)
-        ),
-        child: Story(),
-      ),
+      body: Story(),
     );
   }
 }
@@ -148,26 +149,22 @@ class _DetailsState extends State<Details> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0XFF1D1E70),
+      backgroundColor: Color(0xff392850),
 
       appBar: AppBar(
         title: Text(widget.pagenabi,style: TextStyle(fontWeight: FontWeight.bold,fontStyle: FontStyle.italic),),
-        backgroundColor: Color(0XFF1D1E70),
+        backgroundColor: Color(0xff453658),
         centerTitle: true,
+        elevation: 10,
       ),
-      body: Container(
-        decoration: BoxDecoration(
-            image: DecorationImage(image: AssetImage("assets/mohamed.png"),alignment: Alignment.center)
-        ),
-        child: ListView(
-          children: <Widget>[
-            Qss(widget.pagepart1,widget.pagepart1 == "" ?Colors.transparent:Colors.deepPurpleAccent.withOpacity(0.5),),
-            Qss(widget.pagepart2,widget.pagepart2 == "" ?Colors.transparent: Colors.deepPurple.withOpacity(0.5),),
-            Qss(widget.pagepart3,widget.pagepart3 == "" ?Colors.transparent:Colors.indigoAccent.withOpacity(0.5),),
-            Qss(widget.pagepart4,widget.pagepart4 == "" ?Colors.transparent:Colors.indigo.withOpacity(0.5),),
-          ],
+      body: ListView(
+        children: <Widget>[
+          Qss(widget.pagepart1,widget.pagepart1 == "" ?Colors.transparent: Color(0xff453658),),
+          Qss(widget.pagepart2,widget.pagepart2 == "" ?Colors.transparent:  Color(0xff453658),),
+          Qss(widget.pagepart3,widget.pagepart3 == "" ?Colors.transparent: Color(0xff453658)),
+          Qss(widget.pagepart4,widget.pagepart4 == "" ?Colors.transparent: Color(0xff453658)),
+        ],
 
-        ),
       ),
     );
   }

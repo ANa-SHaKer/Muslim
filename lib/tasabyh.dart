@@ -61,33 +61,23 @@ class SingleTasabyhList extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Padding(
-      padding: const EdgeInsets.only(top:8.0,left: 5),
-      child: Container(
-        alignment: Alignment.center,
-        decoration: BoxDecoration(
-            color: Colors.deepPurpleAccent.withOpacity(0.8),
-            borderRadius: BorderRadius.circular(20)
-        ),
-
-        child:  Column(
-          children: <Widget>[
-            Container(
-              height: 40,
-              width: 80,
-              alignment: Alignment.center,
-
-              decoration: BoxDecoration(
-                color: Colors.black,
-                borderRadius: BorderRadius.only(bottomRight: Radius.circular(25),bottomLeft: Radius.circular(25))
-              ),
-            child: Text(prodnum,style: TextStyle(color: Colors.white,fontSize: 15,fontWeight: FontWeight.w900),textDirection: TextDirection.rtl,) ,
-        ),
-            ListTile(title: Text(prodtasbyh,style: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.w900,),textAlign: TextAlign.center,),
-              subtitle: Text(prodsubtitle,style: TextStyle(color: Colors.white,fontSize: 15,),textAlign: TextAlign.right),
-
+      padding: const EdgeInsets.all(12.0),
+      child: Card(
+        color: Color(0xff453658),
+        elevation: 10,
+        shape: StadiumBorder(),
+        child: Container(
+          alignment: Alignment.center,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              color: Color(0xff453658),
             ),
-          ],
-        )
+
+          child:  ListTile(title: Text(prodtasbyh,style: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.w900,),textAlign: TextAlign.center,),
+            subtitle: Text(prodsubtitle,style: TextStyle(color: Colors.white,fontSize: 15,),textAlign: TextAlign.right),
+
+          )
+        ),
       ),
     );
   }
@@ -97,25 +87,14 @@ class TasabyhPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomPadding: false,
-
-      backgroundColor: Color(0XFF1D1E70),
+      backgroundColor: Color(0xff392850),
       appBar: AppBar(
         title: Text("Muslim",style: TextStyle(fontWeight: FontWeight.bold,fontStyle: FontStyle.italic),),
-        backgroundColor: Color(0XFF1D1E70),
+        backgroundColor: Color(0xff453658),
         centerTitle: true,
+        elevation: 10,
       ),
-      body: ListView(
-        children: <Widget>[
-          Container(
-            height: MediaQuery.of(context).size.height,
-            width: MediaQuery.of(context).size.width,
-            decoration: BoxDecoration(
-                image: DecorationImage(image: AssetImage("assets/god.png"),alignment: Alignment.center)
-            ),
-            child: Tasabyh(),
-          ),
-        ],
-      ),
+      body: Tasabyh(),
     );
   }
 }

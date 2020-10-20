@@ -61,7 +61,8 @@ class SingleAhadesList extends StatelessWidget {
 
   });
 
-
+/*
+*/
 
   @override
   Widget build(BuildContext context) {
@@ -86,33 +87,27 @@ class SingleAhadesList extends StatelessWidget {
           height: 190,
           width: 190,
           decoration: BoxDecoration(
-            color: prodcolor,
+            color: Color(0xff453652),
             borderRadius: BorderRadius.circular(20.0),
           ),
-          child: ListView(
-            children: <Widget>[
-            ListTile(
-              title:  Container(
-                  height: 90.0,
-                  child: ClipOval(
-                    child: Image(image: AssetImage("assets/prophet.jpg",),),
+          child: Card(
+            color: Color(0xff453658),
+            elevation: 10,
+            child: ListTile(
+              title:  Center(
+                child: Text(
+                  prodhokm,
+                  style: TextStyle(
+                    fontSize: 18.0,
+                    color: Colors.white,
+                    fontFamily: "Quando",
+                    fontWeight: FontWeight.w900,
                   ),
-                ),
-              subtitle: Text(
-                prodhokm,
-                style: TextStyle(
-                  fontSize: 18.0,
-                  color: Colors.white,
-                  fontFamily: "Quando",
-                  fontWeight: FontWeight.w900,
-                ),
-                textAlign: TextAlign.center,
+                  textAlign: TextAlign.center,
 
+                ),
               ),
             ),
-
-
-            ],
           ),
         ),
       ),
@@ -123,20 +118,15 @@ class AhadesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0XFF1D1E70),
+      resizeToAvoidBottomPadding: false,
+      backgroundColor: Color(0xff392850),
       appBar: AppBar(
         title: Text("Muslim",style: TextStyle(fontWeight: FontWeight.bold,fontStyle: FontStyle.italic),),
-        backgroundColor: Color(0XFF1D1E70),
+        backgroundColor: Color(0xff453658),
         centerTitle: true,
+        elevation: 10,
       ),
-      body: Container(
-        height: MediaQuery.of(context).size.height,
-        width: MediaQuery.of(context).size.width,
-        decoration: BoxDecoration(
-            image: DecorationImage(image: AssetImage("assets/god.png"),alignment: Alignment.center)
-        ),
-        child: Ahades(),
-      ),
+      body: Ahades(),
     );
   }
 }
@@ -162,23 +152,22 @@ class _DetailsState extends State<Details> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0XFF1D1E70),
+      backgroundColor: Color(0xff392850),
 
       appBar: AppBar(
         title: Text(widget.pageHokm,style: TextStyle(fontWeight: FontWeight.bold,fontStyle: FontStyle.italic),),
-        backgroundColor: Color(0XFF1D1E70),
+        backgroundColor: Color(0xff453658),
         centerTitle: true,
+        elevation: 10,
       ),
       body: Container(
-        decoration: BoxDecoration(
-            image: DecorationImage(image: AssetImage("assets/mohamed.png"),alignment: Alignment.center)
-        ),
+
         child: ListView(
           children: <Widget>[
-            Hades(widget.pageHades1,widget.pageHades1 == "" ?Colors.transparent:Colors.deepPurpleAccent.withOpacity(0.5),),
-            Hades(widget.pageHades2,widget.pageHades2 == "" ?Colors.transparent: Colors.deepPurple.withOpacity(0.5),),
-             Hades(widget.pageHades3,widget.pageHades3 == "" ?Colors.transparent:Colors.indigoAccent.withOpacity(0.5),),
-            Hades(widget.pageHades4,widget.pageHades4 == "" ?Colors.transparent:Colors.indigo.withOpacity(0.5),),
+            Hades(widget.pageHades1,widget.pageHades1 == "" ?Colors.transparent: Color(0xff453658)),
+            Hades(widget.pageHades2,widget.pageHades2 == "" ?Colors.transparent:  Color(0xff453658)),
+             Hades(widget.pageHades3,widget.pageHades3 == "" ?Colors.transparent: Color(0xff453658)),
+            Hades(widget.pageHades4,widget.pageHades4 == "" ?Colors.transparent: Color(0xff453658)),
           ],
 
         ),
